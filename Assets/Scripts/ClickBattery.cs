@@ -22,19 +22,21 @@ public class ClickBattery : Battery {
     }
     private void OnMouseDrag()
     {
-        if (type == BatteryType.Continuous)
+        if (type == BatteryType.Continuous && !PauseMenu.paused)
         {
             Activate();
         }
     }
     private void OnMouseDown()
     {
-        Activate();
-        cooldown = cooldownMax;
+        if (!PauseMenu.paused) {
+            Activate();
+            cooldown = cooldownMax;
+        }
     }
     private void OnMouseOver()
     {
-        if (GetActive() == defaultActive && cooldown <= 0) {
+        if (GetActive() == defaultActive && cooldown <= 0 && !PauseMenu.paused) {
             timeSince = timeSince + Time.deltaTime;
             mat.SetFloat("_HighlightOpacity", Mathf.Sin(-0.5f + timeSince * frequency) * intensity + intensity);
         }
