@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class Bombs : MonoBehaviour {
     
-    public float cooldownMax = 3;
+    public float cooldownMax = 3;    //the cooldown will be set to this when a bomb is dropped
     
-    public GameObject bombPrefab;
+    public GameObject bombPrefab;    //prefab that's being initialized
 
-    private GameObject bomb;
-    private float cooldown = 0;
-    public Image cooldownBar;
+    private GameObject bomb;         //permanent reference to the bomb prefab
+    private float cooldown = 0;      //current timer
+    public Image cooldownBar;        //UI element
 
 
 	// Use this for initialization
