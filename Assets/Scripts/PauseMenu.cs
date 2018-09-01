@@ -18,6 +18,7 @@ public class PauseMenu : MonoBehaviour {
         pauseOverlay.SetActive(paused);
     }
     public void Exit(){
+        paused = false;
         SceneManager.LoadScene(0);
     }
 }
