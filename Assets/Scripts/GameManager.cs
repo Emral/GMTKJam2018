@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour {
         }
         set
         {
-            _score += value;
+            _score = value;
 
             if (_score < 0)
             {
