@@ -16,7 +16,7 @@ public class PointObject : MonoBehaviour {
         {
             if(other.rigidbody.velocity.magnitude > 2)
             {
-                GameManager.instance.score.Score += pointValue;
+                GameManager.instance.Score += pointValue;
             }
         }
     }

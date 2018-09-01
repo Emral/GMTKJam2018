@@ -11,10 +11,24 @@ public class GameManager : MonoBehaviour {
     public PinballScript player;         //always useful to have one of these
     [HideInInspector]
 
-    //public int score;                    // Reference to the score... obviously
+    private int _score;
 
-    public ScoreClass score = new ScoreClass();
+    public int Score
+    {
+        get
+        {
+            return _score;
+        }
+        set
+        {
+            _score += value;
 
+            if (_score < 0)
+            {
+                _score = 0;
+            }
+        }
+    }
 
     public Text scoreText;               // Reference to the text that displays the score
 
@@ -22,33 +36,11 @@ public class GameManager : MonoBehaviour {
     {
         instance = this;
         player = FindObjectOfType<PinballScript>();
-        score.Score = 0;
+        Score = 0;
     }
 
     private void Update()
     {
-        scoreText.text = "Score: " + score.Score;
-    }
-
-    public class ScoreClass
-    {
-        private int score;
-
-        public int Score
-        {
-            get
-            {
-                return score;
-            }
-            set
-            {
-                score += value;
-
-                if(score < 0)
-                {
-                    score = 0;
-                }
-            }
-        }
+        scoreText.text = "Score: " + Score;
     }
 }
