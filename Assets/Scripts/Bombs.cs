@@ -28,6 +28,7 @@ public class Bombs : MonoBehaviour {
                 mousePos.z = 10f;
                 bomb.transform.position = Camera.main.ScreenToWorldPoint(mousePos);
                 bomb.SetActive(true);
+                GameManager.instance.score -= 50;
                 bomb.GetComponent<BombScript>().Activate();
                 cooldown = cooldownMax;
             }
