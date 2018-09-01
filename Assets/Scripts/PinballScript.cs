@@ -13,10 +13,13 @@ public class PinballScript : MonoBehaviour {
 
     Rigidbody2D rig;                    // Reference to the rigidbody
 
+    Animator animator;                  //Reference to the animator
+
     private void Start()
     {
         //Set references
         rig = GetComponent<Rigidbody2D>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     private void FixedUpdate()
@@ -27,12 +30,12 @@ public class PinballScript : MonoBehaviour {
         //    rig.velocity = new Vector2(rig.velocity.x, maxVelocity);
         //    //Debug.Log(rig.velocity.y);
         //}
-
         //If the ball is going to fast downwards, set it to its maximum speed
         if (rig.velocity.y < -maxVelocity)
         {
             rig.velocity = new Vector2(rig.velocity.x, -maxVelocity);
             //Debug.Log(rig.velocity.y);
-        }        
+        }
+        //animator.speed = rig.velocity.magnitude * 0.5f;
     }
 }
