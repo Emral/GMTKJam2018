@@ -19,9 +19,17 @@ public class Bombs : MonoBehaviour {
 		bomb = Instantiate(bombPrefab, transform);
         bomb.SetActive(false);
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    public void Reset()
+    {
+        if (bomb != null) {
+            bomb.SetActive(false);
+            cooldown = 0;
+        }
+    }
+
+    // Update is called once per frame
+    void Update () {
 		if (cooldown <= 0 && !PauseMenu.paused){
             if (Input.GetMouseButtonDown(1)){
                 Vector3 mousePos = Input.mousePosition;

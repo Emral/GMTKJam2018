@@ -18,7 +18,25 @@ public class PauseMenu : MonoBehaviour {
         pauseOverlay.SetActive(paused);
     }
     public void Exit(){
-        paused = false;
         SceneManager.LoadScene(0);
+    }
+
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    // called second
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        paused = false;
+        Time.timeScale = 1;
+        pauseOverlay.SetActive(paused);
+    }
+
+    // called when the game is terminated
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }
