@@ -5,9 +5,9 @@ using UnityEngine;
 
 //Useful references
 public class GameManager : MonoBehaviour {
-    public static GameManager instance;
+    public static GameManager instance;  //not a singleton because i'm lazy
     [HideInInspector]
-    public PinballScript player;
+    public PinballScript player;         //always useful to have one of these
 
     private void Awake()
     {

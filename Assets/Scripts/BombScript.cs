@@ -4,10 +4,10 @@ using UnityEngine;
 
 //Runs for the individual bomb
 public class BombScript : MonoBehaviour {
-    public float fuse = 2f;
-    public float radius = 5f;
-    public float force = 15f;
-    private float fuseTimer = 0;
+    public float fuse = 2f;      //how long before it explodes by itself?
+    public float radius = 5f;    //what's the radius in which the bomb affects the player?
+    public float force = 15f;    //how strong is the bomb?
+    private float fuseTimer = 0; //current timer
 	
     public void Activate(){
         fuseTimer = 0;
