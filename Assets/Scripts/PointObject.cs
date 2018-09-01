@@ -14,7 +14,9 @@ public class PointObject : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            GameObject.Find("UI").GetComponent<GameManager>().score += pointValue;
+            //GameManager.instance.score += pointValue;
+            GameManager.instance.score.Score += pointValue;
+
         }
     }
 
