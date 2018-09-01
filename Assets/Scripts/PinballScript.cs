@@ -22,11 +22,11 @@ public class PinballScript : MonoBehaviour {
     private void FixedUpdate()
     {
         //If the ball is going to fast upwards, set it to its maximum speed
-        if (rig.velocity.y > maxVelocity)
-        {
-            rig.velocity = new Vector2(rig.velocity.x, maxVelocity);
-            //Debug.Log(rig.velocity.y);
-        }
+        //if (rig.velocity.y > maxVelocity)
+        //{
+        //    rig.velocity = new Vector2(rig.velocity.x, maxVelocity);
+        //    //Debug.Log(rig.velocity.y);
+        //}
 
         //If the ball is going to fast downwards, set it to its maximum speed
         if (rig.velocity.y < -maxVelocity)
