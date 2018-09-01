@@ -29,6 +29,13 @@ public class Battery : MonoBehaviour
         }
     }
 
+    public void Activate(){
+        active = !defaultActive;
+    }
+    public void Deactivate(){
+        active = defaultActive;
+    }
+
     public void PowerOn()
     {
         active = true;

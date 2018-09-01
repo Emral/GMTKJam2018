@@ -179,7 +179,12 @@ public class MovingObject : MonoBehaviour
 			{
 				active = false;
 			}
-		}
+		} else {
+            if (attachedBattery)
+            {
+                attachedBattery.Deactivate();
+            }
+        }
 	}
     
     void PlaySound(AudioClip sound)
@@ -213,9 +218,10 @@ public class MovingObject : MonoBehaviour
 				modifiedSpeed = (speed - transform.position) / time;
 				modifiedAngular = (angularSpeed - transform.eulerAngles) / time;
 			}
-		}
+        }
+        yield return StartCoroutine(Wait());
 
-		while (startTime < time)
+        while (startTime < time)
 		{
 			float t = Time.deltaTime;
 			if (!freezeP)
@@ -238,11 +244,11 @@ public class MovingObject : MonoBehaviour
                     transform.localEulerAngles = speed;
                 }
             }
-			yield return StartCoroutine(Wait());
             if (sound && startTime - t == 0)
             {
                 PlaySound(sound);
             }
+            yield return StartCoroutine(Wait());
         }
 
 		if (isGoal)

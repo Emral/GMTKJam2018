@@ -184,7 +184,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 603587935}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 1.43, y: -6.34, z: -14.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -202,6 +202,7 @@ GameObject:
   - component: {fileID: 620418667}
   - component: {fileID: 620418670}
   - component: {fileID: 620418671}
+  - component: {fileID: 620418672}
   m_Layer: 0
   m_Name: Moving Object Test
   m_TagString: Untagged
@@ -221,17 +222,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 1
-  type: 0
+  type: 2
   movementSpace: 1
   steps:
-  - type: 0
-    duration: 2
-    freezePosition: 1
-    freezeRotation: 1
-    interpretSpeedAsGoal: 0
-    speed: {x: 0, y: 0, z: 0}
-    angularSpeed: {x: 0, y: 0, z: 0}
-    sound: {fileID: 0}
   - type: 0
     duration: 0.25
     freezePosition: 0
@@ -352,6 +345,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceMultiplier: 15
+--- !u!114 &620418672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 620418666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6a1add41bf1e434fad9ad9cee89e0a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultActive: 0
+  type: 0
 --- !u!1 &1265657616
 GameObject:
   m_ObjectHideFlags: 0
