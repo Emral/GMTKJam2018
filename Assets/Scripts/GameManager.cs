@@ -37,6 +37,11 @@ public class GameManager : MonoBehaviour {
 
     public Text scoreText;               // Reference to the text that displays the score
 
+    public int StartingLives = 3;        // How many lives the player starts with
+    public Image gameOverMenu;           // Reference to the menu that appears when the game has ended. 
+    [HideInInspector]
+    public int lives;                    // How many lives the player has at the moment
+
     private void Awake()
     {
         if (instance != null){
@@ -71,5 +76,11 @@ public class GameManager : MonoBehaviour {
     void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    public void Reset()
+    {
+        lives = StartingLives;
+        SceneManager.LoadScene(0);
     }
 }
