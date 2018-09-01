@@ -14,9 +14,10 @@ public class PointObject : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            //GameManager.instance.score += pointValue;
-            GameManager.instance.score.Score += pointValue;
-
+            if(other.rigidbody.velocity.magnitude > 2)
+            {
+                GameManager.instance.score.Score += pointValue;
+            }
         }
     }
 
