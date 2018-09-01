@@ -13,13 +13,13 @@ public class PinballScript : MonoBehaviour {
 
     Rigidbody2D rig;                    // Reference to the rigidbody
 
-    Animator animator;                  //Reference to the animator
+    //Animator animator;                  //Reference to the animator
 
     private void Start()
     {
         //Set references
         rig = GetComponent<Rigidbody2D>();
-        animator = GetComponentInChildren<Animator>();
+        //animator = GetComponentInChildren<Animator>();
     }
 
     private void FixedUpdate()
