@@ -36,6 +36,11 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    public List<int> highscores = new List<int>() {0,1,2};  // List that contains all the high scores
+    public List<Text> highscoreDisplays = new List<Text>(); // List that contains all the displays for the highscores. 
+    public Text finalScoreDisplay;                          // Text that displays the player's score on the game over screen
+    //public Image highScoreContainers;                          // Reference to the UI component that holds all the high scores
+
     public Text scoreText;               // Reference to the text that displays the score
 
     public int StartingLives = 3;        // How many lives the player starts with
@@ -110,6 +115,23 @@ public class GameManager : MonoBehaviour {
 
         if(gameOverMenu.isActiveAndEnabled == false)
         {
+            // Update highscores. 
+            for(int x= 0; x < 3; x++)
+            {
+                if(Score > highscores[x])
+                {
+                    highscores.Insert(x, Score);
+                    x = 3;
+                }
+            }
+
+            // Update the highscores and final score
+            for(int x = 0; x < 3; x++)
+            {
+                highscoreDisplays[x].text = highscores[x].ToString();
+            }
+            finalScoreDisplay.text = "You scored: " + Score.ToString();
+
             gameOverMenu.gameObject.SetActive(true);
             PauseMenu.paused = true;
             Time.timeScale = 0;
