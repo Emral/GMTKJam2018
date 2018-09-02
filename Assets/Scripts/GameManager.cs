@@ -84,6 +84,12 @@ public class GameManager : MonoBehaviour {
         UIElements.SetActive(scene.buildIndex != 0);
         player = FindObjectOfType<PinballScript>();
         Score = 0;
+        if (livesImages != null){
+            for (int i = 0; i < StartingLives; i++)
+            {
+                Destroy(livesImages[i]);
+            }
+        }
         livesImages = new GameObject[StartingLives];
         for (int i=0; i < StartingLives; i++){
             livesImages[i] = Instantiate(livesImagePrefab, livesContainer.transform);
