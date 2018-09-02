@@ -19,6 +19,10 @@ public class PointObject : MonoBehaviour {
         }
     }
 
+    public float getWobble(){
+        return wobbleLerp;
+    }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
