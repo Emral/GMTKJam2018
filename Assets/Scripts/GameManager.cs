@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour {
     public GameObject livesContainer;    // UI Container for lives.
     public Image gameOverMenu;           // Reference to the menu that appears when the game has ended. 
 
-    private GameObject[] livesImages;     // References to those UI elements.
+    private GameObject[] livesImages;    // References to those UI elements.
     private int _lives;                  // How many lives the player has at the moment
 
     [HideInInspector]
@@ -105,6 +105,17 @@ public class GameManager : MonoBehaviour {
     }
 
     public void GameOver(){
-        SceneManager.LoadScene(0);
+
+        // If the game over scene is not active, make it so. Else, deactivate it and load the main menu
+
+        if(gameOverMenu.isActiveAndEnabled == false)
+        {
+            gameOverMenu.gameObject.SetActive(true);
+        }
+        else
+        {
+            gameOverMenu.gameObject.SetActive(false);
+            SceneManager.LoadScene(0);
+        }
     }
 }
