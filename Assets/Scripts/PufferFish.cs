@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/* I tried my best with this, and it seems to be functional. I was having a hard time understanding how you're moving object was deactivating
-   in your test scene; I hope what I did here was okay. I think this will do what we intend for the pufferfish just fine, but I've left detailed 
+/* I tried my best with this, and it seems to be functional. I was having a hard time understanding how your moving object in your test 
+   scene was deactivating; I hope what I did here was okay. I think this will do what we intend for the pufferfish just fine, but I've left detailed 
    comments so you can figure out what's going on and change anything if necessary. 
 */
 

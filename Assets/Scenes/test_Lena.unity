@@ -226,6 +226,34 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6060495a32e69864f95d013d356a4975, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &721020951
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 721020952}
+  m_Layer: 0
+  m_Name: Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &721020952
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 721020951}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.55, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1240590797}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &999694138
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,7 +411,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1036619725}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.11, y: -3.14, z: 1}
+  m_LocalPosition: {x: 9, y: -3.1, z: 1}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -429,7 +457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5e076ab61b257845bbc8ecb3fbe3121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Timer: 5
+  Timer: 1
   inflatedSize: 20
 --- !u!1 &1059187945
 GameObject:
@@ -647,8 +675,8 @@ GameObject:
   - component: {fileID: 1240590797}
   - component: {fileID: 1240590796}
   - component: {fileID: 1240590795}
-  - component: {fileID: 1240590798}
   - component: {fileID: 1240590799}
+  - component: {fileID: 1240590798}
   m_Layer: 0
   m_Name: 'Test: Cannon'
   m_TagString: Untagged
@@ -736,7 +764,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.13, y: -3.49, z: 1}
   m_LocalScale: {x: 3.18, y: 1.74, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 721020952}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -751,6 +780,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08287ba8de1dc8f46adec99f6e596890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cannonBall: {fileID: 721020951}
+  spawnPoint: {fileID: 1923080944110440, guid: 4016462f8346d2b43afd0f4ffce49959, type: 2}
+  fireRate: 3
 --- !u!114 &1240590799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -850,6 +882,52 @@ Transform:
   m_Father: {fileID: 2036283400}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1880474886
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4972507663550054, guid: 4016462f8346d2b43afd0f4ffce49959, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -7.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972507663550054, guid: 4016462f8346d2b43afd0f4ffce49959, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972507663550054, guid: 4016462f8346d2b43afd0f4ffce49959, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972507663550054, guid: 4016462f8346d2b43afd0f4ffce49959, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972507663550054, guid: 4016462f8346d2b43afd0f4ffce49959, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972507663550054, guid: 4016462f8346d2b43afd0f4ffce49959, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972507663550054, guid: 4016462f8346d2b43afd0f4ffce49959, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972507663550054, guid: 4016462f8346d2b43afd0f4ffce49959, type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923080944110440, guid: 4016462f8346d2b43afd0f4ffce49959, type: 2}
+      propertyPath: m_Name
+      value: 'Test: Cannon Ball'
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4016462f8346d2b43afd0f4ffce49959, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &1902208362
 GameObject:
   m_ObjectHideFlags: 0
