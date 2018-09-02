@@ -6,17 +6,26 @@ public class PointObject : MonoBehaviour {
 
     public int pointValue = 500;
     public float bounceForce = 0f;
+    public Transform sprite;
+    private float wobbleLerp = 0;
 
-	// Use this for initialization
-	void Start ()
+    private void Update()
     {
-	}
+        if (wobbleLerp > 0){
+            wobbleLerp = wobbleLerp - 0.5f * Time.deltaTime;
+            sprite.transform.localScale = Vector3.one * EasingFunction.EaseInElastic(1, 12, wobbleLerp);
+        } else {
+            sprite.transform.localScale = Vector3.one;
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             if(other.rigidbody.velocity.magnitude > 2)
             {
+                wobbleLerp = 0.5f;
                 GameManager.instance.Score += pointValue;
                 if (bounceForce > 0){
                     other.rigidbody.velocity = Vector3.zero;
