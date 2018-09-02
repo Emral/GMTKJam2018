@@ -30,6 +30,6 @@ public class CannonballScript : MonoBehaviour {
         {
             playerTransform.GetComponent<Rigidbody2D>().AddForce(dist.normalized * (force / dist.sqrMagnitude), ForceMode2D.Impulse);
         }
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

@@ -22,16 +22,18 @@ public class ClickBattery : Battery {
     }
     private void OnMouseDrag()
     {
-        if (type == BatteryType.Continuous && !PauseMenu.paused)
+        if (type == BatteryType.Continuous && !PauseMenu.paused && cooldown <= 0)
         {
             Activate();
+            cooldown = cooldownMax;
         }
     }
     private void OnMouseDown()
     {
-        if (!PauseMenu.paused) {
+        if (!PauseMenu.paused && cooldown <= 0) {
             Activate();
             cooldown = cooldownMax;
+            timeSince = 0;
         }
     }
     private void OnMouseOver()
