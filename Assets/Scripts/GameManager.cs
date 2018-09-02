@@ -51,6 +51,8 @@ public class GameManager : MonoBehaviour {
     private GameObject[] livesImages;    // References to those UI elements.
     private int _lives;                  // How many lives the player has at the moment
 
+    public AudioSource deathSFX;
+
     [HideInInspector]
     public int lives {
         get {return _lives;}

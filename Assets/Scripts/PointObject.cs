@@ -8,6 +8,7 @@ public class PointObject : MonoBehaviour {
     public float bounceForce = 0f;
     public Transform sprite;
     private float wobbleLerp = 0;
+    private AudioSource source;
 
     private void Update()
     {
@@ -22,6 +23,10 @@ public class PointObject : MonoBehaviour {
     public float getWobble(){
         return wobbleLerp;
     }
+    private void Start()
+    {
+        source = GetComponent<AudioSource>();
+    }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -34,6 +39,9 @@ public class PointObject : MonoBehaviour {
                 if (bounceForce > 0){
                     other.rigidbody.velocity = Vector3.zero;
                     other.rigidbody.AddForce(other.contacts[0].normal * -bounceForce, ForceMode2D.Impulse);
+                }
+                if (source != null){
+                    source.Play();
                 }
             }
         }

@@ -19,15 +19,20 @@ public class PufferFish : MonoBehaviour
     bool inflated;                      // Is the pufferfish deflated?
     ClickBattery bat;                   // Reference to the click battery script on this object
     Animator anim;
+    AudioSource source;
     //Set references
     private void Start()
     {
         initialSize = transform.localScale.x;
         bat = GetComponent<ClickBattery>();
         anim = GetComponent<Animator>();
+        source = GetComponent<AudioSource>();
     }
 
     private void Inflate(){
+        if (!inflated){
+            source.Play();
+        }
         inflated = true;
         timer = Timer;
         anim.SetBool("puffed", true);

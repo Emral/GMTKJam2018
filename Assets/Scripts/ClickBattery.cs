@@ -11,9 +11,12 @@ public class ClickBattery : Battery {
     private float cooldown = 0;       //current cooldown
     public float cooldownMax = 0;     //maximum cooldown for this object
 
+    private AudioSource source;
+
     private void Start()
     {
         mat = GetComponent<SpriteRenderer>().material;
+        source = GetComponent<AudioSource>();
     }
 
     private void LateUpdate()
@@ -32,6 +35,7 @@ public class ClickBattery : Battery {
     {
         if (!PauseMenu.paused && cooldown <= 0) {
             Activate();
+            source.Play();
             cooldown = cooldownMax;
             timeSince = 0;
         }

@@ -24,7 +24,8 @@ public class PitScript : MonoBehaviour {
         if (other.CompareTag("Player"))
         {
             GameManager.instance.lives -= 1;
-            if(GameManager.instance.lives <= 0)
+            GameManager.instance.deathSFX.Play();
+            if (GameManager.instance.lives <= 0)
             {
                 GameManager.instance.GameOver();
             }
