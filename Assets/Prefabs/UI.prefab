@@ -866,7 +866,7 @@ MonoBehaviour:
   UIElements: {fileID: 1942012004057460}
   player: {fileID: 0}
   bombInput: {fileID: 0}
-  highscores: 32000000140000000a000000
+  highscores: 50c30000d007000096000000
   highscoreDisplays:
   - {fileID: 114522684680571474}
   - {fileID: 114114357829711676}

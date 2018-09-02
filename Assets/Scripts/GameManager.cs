@@ -111,6 +111,10 @@ public class GameManager : MonoBehaviour {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
+    public List<int> GetHS(){
+        return highscores;
+    }
+
     public void GameOver(){
 
         // If the game over scene is not active, make it so. Else, deactivate it and load the main menu
