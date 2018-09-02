@@ -36,6 +36,7 @@ public class PointObject : MonoBehaviour {
             {
                 wobbleLerp = 0.5f;
                 GameManager.instance.Score += pointValue;
+                ScoreDisplay.instance.Spawn(transform.position, pointValue);
                 if (bounceForce > 0){
                     other.rigidbody.velocity = Vector3.zero;
                     other.rigidbody.AddForce(other.contacts[0].normal * -bounceForce, ForceMode2D.Impulse);
