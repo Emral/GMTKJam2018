@@ -780,8 +780,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08287ba8de1dc8f46adec99f6e596890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cannonBall: {fileID: 721020951}
-  spawnPoint: {fileID: 1923080944110440, guid: 4016462f8346d2b43afd0f4ffce49959, type: 2}
+  cannonBall: {fileID: 1923080944110440, guid: 4016462f8346d2b43afd0f4ffce49959, type: 2}
+  spawnPoint: {fileID: 721020951}
   fireRate: 3
 --- !u!114 &1240590799
 MonoBehaviour:
