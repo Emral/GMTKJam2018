@@ -10,7 +10,7 @@ public class Explosions : MonoBehaviour {
     public int poolSize;
 
     private GameObject[] explosions;
-    private AudioSource audio;
+    private AudioSource audioS;
 
 	// Use this for initialization
 	void Awake () {
@@ -23,7 +23,7 @@ public class Explosions : MonoBehaviour {
             explosions[i].transform.SetParent(transform);
             explosions[i].SetActive(false);
         }
-        audio = GetComponent<AudioSource>();
+        audioS = GetComponent<AudioSource>();
     }
 
     // Call to get your own explosion!
@@ -36,7 +36,7 @@ public class Explosions : MonoBehaviour {
 
             explosions[i].transform.position = position - Vector3.forward;
             explosions[i].SetActive(true);
-            audio.Play();
+            audioS.Play();
             break;
         }
     }

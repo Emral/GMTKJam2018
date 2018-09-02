@@ -5,8 +5,6 @@ using UnityEngine;
 public class CursorHelper : MonoBehaviour {
     public Texture2D mainTex;
     public Texture2D grabTex;
-
-    private Vector3 lastMousePos = Vector3.zero;
 	// Use this for initialization
 	void Start () {
         SetDefault();
@@ -34,7 +32,6 @@ public class CursorHelper : MonoBehaviour {
         } else {
             SetDefault();
         }
-        lastMousePos = worldPos;
 	}
 
     public void SetDefault(){

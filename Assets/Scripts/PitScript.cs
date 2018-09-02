@@ -13,7 +13,7 @@ public class PitScript : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        playerSpawnPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
+        playerSpawnPosition = GameManager.instance.player.transform.position;
         cameraInitialPosition = Camera.main.transform.position;
         cameraInitialSize = Camera.main.orthographicSize;
         cam = Camera.main.GetComponent<CameraController>();
@@ -24,19 +24,18 @@ public class PitScript : MonoBehaviour {
         if (other.CompareTag("Player"))
         {
             GameManager.instance.lives -= 1;
-
             if(GameManager.instance.lives <= 0)
             {
-                GameManager.instance.Reset();
+                GameManager.instance.GameOver();
             }
             else
             {
                 other.transform.position = playerSpawnPosition;
+                other.attachedRigidbody.velocity = Vector3.zero;
                 cam.targetPosition = cameraInitialPosition;
                 cam.targetSize = cameraInitialSize;
             }
         }
-        Debug.Log(GameManager.instance.lives);
     }
 
 }

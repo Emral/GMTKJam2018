@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
     public static GameManager instance;  //i stopped being lazy
     public GameObject UIElements;
+
     [HideInInspector]
     public PinballScript player;         //always useful to have one of these
 
@@ -38,9 +39,23 @@ public class GameManager : MonoBehaviour {
     public Text scoreText;               // Reference to the text that displays the score
 
     public int StartingLives = 3;        // How many lives the player starts with
+    public GameObject livesImagePrefab;  // UI Image for lives.
+    public GameObject livesContainer;    // UI Container for lives.
     public Image gameOverMenu;           // Reference to the menu that appears when the game has ended. 
+
+    private GameObject[] livesImages;     // References to those UI elements.
+    private int _lives;                  // How many lives the player has at the moment
+
     [HideInInspector]
-    public int lives;                    // How many lives the player has at the moment
+    public int lives {
+        get {return _lives;}
+        set {
+            _lives = value;
+            for (int i=0; i < StartingLives; ++i){
+                livesImages[i].SetActive(i < _lives);
+            }
+        }
+    }
 
     private void Awake()
     {
@@ -69,6 +84,11 @@ public class GameManager : MonoBehaviour {
         UIElements.SetActive(scene.buildIndex != 0);
         player = FindObjectOfType<PinballScript>();
         Score = 0;
+        livesImages = new GameObject[StartingLives];
+        for (int i=0; i < StartingLives; i++){
+            livesImages[i] = Instantiate(livesImagePrefab, livesContainer.transform);
+        }
+        lives = StartingLives;
         bombInput.Reset();
     }
 
@@ -78,9 +98,7 @@ public class GameManager : MonoBehaviour {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    public void Reset()
-    {
-        lives = StartingLives;
+    public void GameOver(){
         SceneManager.LoadScene(0);
     }
 }
