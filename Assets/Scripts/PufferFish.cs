@@ -18,23 +18,26 @@ public class PufferFish : MonoBehaviour
     float initialSize;                  // The default size of the puffer fish; what it is when deflated
     bool inflated;                      // Is the pufferfish deflated?
     ClickBattery bat;                   // Reference to the click battery script on this object
-
+    Animator anim;
     //Set references
     private void Start()
     {
         initialSize = transform.localScale.x;
         bat = GetComponent<ClickBattery>();
+        anim = GetComponent<Animator>();
     }
 
     private void Inflate(){
         inflated = true;
         timer = Timer;
+        anim.SetBool("puffed", true);
     }
 
     // If inflated, begin the countdown. When it reaches zero, set inflated to false and return the object to it's
     // normal size. Turn off the power of the battery script to ensure it will glow when the mouse it over it again.  
     private void LateUpdate()
     {
+        anim.SetBool("puffed", inflated);
         if (inflated)
         {
             if (easeTimer < 1){
@@ -46,6 +49,7 @@ public class PufferFish : MonoBehaviour
             if (timer <= 0)
             {
                 inflated = false;
+                anim.SetBool("puffed", false);
                 bat.PowerOff();
             }
         } else if (easeTimer > 0)
