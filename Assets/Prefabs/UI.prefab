@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 114919717629547202}
   - component: {fileID: 114053060614773778}
   - component: {fileID: 82405114481644894}
+  - component: {fileID: 114176820947977668}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -513,6 +514,9 @@ MonoBehaviour:
   player: {fileID: 0}
   bombInput: {fileID: 0}
   scoreText: {fileID: 114200545935088530}
+  StartingLives: 3
+  gameOverMenu: {fileID: 0}
+  lives: 0
 --- !u!114 &114072059160382378
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -546,6 +550,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Pause
+--- !u!114 &114176820947977668
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1066671574677500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85c4ed3b843aca842a2c8bce98d208fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainTex: {fileID: 2800000, guid: 52c2bf6f296f85646a9b24e9dfd9ee00, type: 3}
+  grabTex: {fileID: 2800000, guid: 1a1d014e78df58b45910fd75dd1c401b, type: 3}
 --- !u!114 &114200545935088530
 MonoBehaviour:
   m_ObjectHideFlags: 1
