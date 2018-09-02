@@ -111,9 +111,13 @@ public class GameManager : MonoBehaviour {
         if(gameOverMenu.isActiveAndEnabled == false)
         {
             gameOverMenu.gameObject.SetActive(true);
+            PauseMenu.paused = true;
+            Time.timeScale = 0;
         }
         else
         {
+            PauseMenu.paused = false;
+            Time.timeScale = 1;
             gameOverMenu.gameObject.SetActive(false);
             SceneManager.LoadScene(0);
         }
